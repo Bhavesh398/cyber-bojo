@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 15% 8%;
+    --foreground: 0 0% 98%;
+    --card: 240 12% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 12% 12%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Ninja Theme - Dark purple to electric blue gradient */
+    --primary: 260 95% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 280 90% 65%;
+    
+    /* Samurai Theme - Crimson red accents */
+    --secondary: 355 85% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 0 90% 65%;
+    
+    /* Sensei Theme - Gold wisdom */
+    --accent: 45 95% 55%;
+    --accent-foreground: 240 15% 8%;
+    --accent-glow: 50 100% 65%;
+    
+    --muted: 240 8% 20%;
+    --muted-foreground: 240 5% 65%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 8% 25%;
+    --input: 240 8% 20%;
+    --ring: 260 95% 55%;
+    --radius: 0.75rem;
+    
+    /* Ninja Gradients */
+    --gradient-ninja: linear-gradient(135deg, hsl(260 95% 55%), hsl(220 90% 55%));
+    --gradient-ninja-glow: linear-gradient(135deg, hsl(280 90% 65%), hsl(220 90% 65%));
+    
+    /* Samurai Gradients */
+    --gradient-samurai: linear-gradient(135deg, hsl(355 85% 55%), hsl(15 90% 55%));
+    --gradient-samurai-glow: linear-gradient(135deg, hsl(0 90% 65%), hsl(30 90% 65%));
+    
+    /* Sensei Gradients */
+    --gradient-sensei: linear-gradient(135deg, hsl(45 95% 55%), hsl(35 100% 60%));
+    --gradient-sensei-glow: linear-gradient(135deg, hsl(50 100% 65%), hsl(40 95% 65%));
+    
+    --gradient-hero: linear-gradient(135deg, hsl(260 95% 55%), hsl(270 60% 50%));
+    --gradient-warm: linear-gradient(135deg, hsl(355 85% 55%), hsl(15 85% 65%));
+    --gradient-trust: linear-gradient(135deg, hsl(260 95% 55%), hsl(280 90% 65%));
+    --gradient-card: linear-gradient(145deg, hsl(240 12% 12%), hsl(240 15% 14%));
+    
+    /* Shadows with glow effects */
+    --shadow-ninja: 0 10px 40px -10px hsl(260 95% 55% / 0.5);
+    --shadow-samurai: 0 10px 40px -10px hsl(355 85% 55% / 0.5);
+    --shadow-sensei: 0 10px 40px -10px hsl(45 95% 55% / 0.5);
+    --shadow-soft: 0 2px 12px -4px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 30px hsl(280 90% 65% / 0.3);
+    --shadow-strong: 0 8px 24px -6px hsl(0 0% 0% / 0.4);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 240 15% 8%;
+    --foreground: 0 0% 98%;
+    --card: 240 12% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 12% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 260 95% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 355 85% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 8% 20%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 45 95% 55%;
+    --accent-foreground: 240 15% 8%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 8% 25%;
+    --input: 240 8% 20%;
+    --ring: 260 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-ninja {
+    background: var(--gradient-ninja);
+  }
+
+  .gradient-samurai {
+    background: var(--gradient-samurai);
+  }
+
+  .gradient-sensei {
+    background: var(--gradient-sensei);
+  }
+
+  .gradient-trust {
+    background: var(--gradient-trust);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-ninja {
+    box-shadow: var(--shadow-ninja);
+  }
+
+  .shadow-samurai {
+    box-shadow: var(--shadow-samurai);
+  }
+
+  .shadow-sensei {
+    box-shadow: var(--shadow-sensei);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  .glow-text-ninja {
+    text-shadow: 0 0 20px hsl(var(--primary-glow) / 0.5);
+  }
+
+  .glow-text-samurai {
+    text-shadow: 0 0 20px hsl(var(--secondary-glow) / 0.5);
+  }
+
+  .glow-text-sensei {
+    text-shadow: 0 0 20px hsl(var(--accent-glow) / 0.5);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-subtle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+}
