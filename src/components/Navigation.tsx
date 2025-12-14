@@ -9,10 +9,10 @@ export const Navigation = () => {
   const { t } = useLanguage();
 
   const navItems = [
-    { icon: Home, label: t("home"), path: "/" },
-    { icon: Shield, label: t("report"), path: "/report" },
-    { icon: Scale, label: t("rights"), path: "/rights" },
-    { icon: CyberIcon, label: t("cyber"), path: "/cyber" },
+    { icon: Home, label: t("home"), path: "/", external: false },
+    { icon: Shield, label: t("report"), path: "/report", external: false },
+    { icon: Scale, label: t("rights"), path: "/rights", external: false },
+    { icon: CyberIcon, label: t("cyber"), path: "https://cyber-dojo.vercel.app/", external: true },
   ];
 
   return (
@@ -21,6 +21,24 @@ export const Navigation = () => {
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = location.pathname === item.path;
+          
+          if (item.external) {
+            return (
+              <a
+                key={item.path}
+                href={item.path}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-lg transition-smooth min-w-[60px]",
+                  "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                <Icon className="w-5 h-5 transition-smooth" />
+                <span className="text-xs font-medium">{item.label}</span>
+              </a>
+            );
+          }
           
           return (
             <Link
@@ -51,14 +69,14 @@ export const DesktopNav = () => {
   const { t } = useLanguage();
 
   const navItems = [
-    { icon: Home, label: t("home"), path: "/" },
-    { icon: Shield, label: t("report"), path: "/report" },
-    { icon: Scale, label: t("rights"), path: "/rights" },
-    { icon: CyberIcon, label: t("cyber"), path: "/cyber" },
-    { icon: MessageCircle, label: t("mentor"), path: "/mentor" },
-    { icon: BookOpen, label: t("directory"), path: "/directory" },
-    { icon: Phone, label: t("emergency"), path: "/emergency" },
-    { icon: AlertTriangle, label: t("safety"), path: "/safety" },
+    { icon: Home, label: t("home"), path: "/", external: false },
+    { icon: Shield, label: t("report"), path: "/report", external: false },
+    { icon: Scale, label: t("rights"), path: "/rights", external: false },
+    { icon: CyberIcon, label: t("cyber"), path: "https://cyber-dojo.vercel.app/", external: true },
+    { icon: MessageCircle, label: t("mentor"), path: "/mentor", external: false },
+    { icon: BookOpen, label: t("directory"), path: "/directory", external: false },
+    { icon: Phone, label: t("emergency"), path: "/emergency", external: false },
+    { icon: AlertTriangle, label: t("safety"), path: "/safety", external: false },
   ];
 
   return (
@@ -77,6 +95,24 @@ export const DesktopNav = () => {
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = location.pathname === item.path;
+              
+              if (item.external) {
+                return (
+                  <a
+                    key={item.path}
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      "flex items-center gap-2 px-4 py-2 rounded-lg transition-smooth font-medium",
+                      "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    )}
+                  >
+                    <Icon className="w-5 h-5" />
+                    <span>{item.label}</span>
+                  </a>
+                );
+              }
               
               return (
                 <Link

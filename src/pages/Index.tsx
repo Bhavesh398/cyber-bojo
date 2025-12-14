@@ -106,9 +106,10 @@ const Index = () => {
               title="Cyber Safety"
               description="Protect yourself from online scams, harassment, and digital threats"
               icon={Lock}
-              to="/cyber"
+              to="https://cyber-dojo.vercel.app/"
               gradient="hero"
               delay={100}
+              external={true}
             />
             <QuickActionCard
               title="AI Mentor Chat"
